@@ -144,6 +144,10 @@ function App() {
 
   return (
     <div className="app-container" style={containerStyle}>
+      <div className="scroll-indicator">
+        ↓ Scrolles légèrement vers le bas ↓
+      </div>
+
       {[...Array(20)].map((_, i) => (
         <div key={i} className="star" style={{
           left: `${Math.random() * 100}%`,
