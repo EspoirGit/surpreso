@@ -245,7 +245,7 @@ function App() {
               <div className="comments-section">
                 <button className="view-comments">
                   Voir les commentaires...
-                </button>
+        </button>
               </div>
 
               <div className="card-actions">
