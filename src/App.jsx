@@ -256,6 +256,10 @@ function App() {
           </div>
         ))}
       </div>
+
+      <footer className="footer">
+        Built with <span className="heart">❤️</span> by Espoir Keven
+      </footer>
     </div>
   )
 }
