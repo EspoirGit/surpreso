@@ -81,7 +81,7 @@ function App() {
       title: "Le cadeau",
       content: "Joyeux anniversaire, Maximine.\nTu es une lumière douce dans un monde pressé.\n\n\"Être moderne, ce n'est pas suivre le temps.\nC'est avoir le courage d'être pleinement soi.\"",
       type: "link",
-      action: "paulin.mp3"
+      action: "Maxe.mp3"
     }
   ]
 
@@ -113,12 +113,13 @@ function App() {
       try {
         setShowPopup(true)
         if (audioRef.current) {
-          await audioRef.current.play().catch(error => {
-            console.error('Erreur lors de la lecture:', error)
-          })
+          audioRef.current.src = '/Maxe.mp3'
+          audioRef.current.load()
+          console.log('Audio chargé, tentative de lecture...')
         }
       } catch (error) {
         console.error('Erreur générale:', error)
+        setIsPlaying(false)
       }
     }
   }
@@ -165,16 +166,27 @@ function App() {
             <h3>🎵 Un message pour toi...</h3>
             <audio 
               ref={audioRef}
-              src={`/${cards[cards.length - 1].action}`}
+              src="/Maxe.mp3"
               controls
               preload="auto"
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
+              onLoadedData={() => {
+                console.log('Audio chargé avec succès')
+                audioRef.current.play().catch(e => console.error('Erreur de lecture:', e))
+              }}
               onError={(e) => {
-                console.error('Erreur audio:', e)
+                console.error('Erreur de chargement audio:', e)
+                setIsPlaying(false)
+              }}
+              onPlay={() => {
+                console.log('Lecture démarrée')
+                setIsPlaying(true)
+              }}
+              onPause={() => {
+                console.log('Lecture en pause')
                 setIsPlaying(false)
               }}
               onEnded={() => {
+                console.log('Lecture terminée')
                 setIsPlaying(false)
                 setShowPopup(false)
               }}

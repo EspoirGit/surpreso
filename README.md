@@ -24,7 +24,7 @@ npm install
 
 3. Configuration des fichiers médias :
    - Placez vos images dans le dossier `public/`
-   - Placez votre fichier audio `paulin.mp3` dans le dossier `public/`
+   - Placez votre fichier audio `Maxe.mp3` dans le dossier `public/`
 
 4. Lancez le serveur de développement :
 ```bash
@@ -40,7 +40,7 @@ src/
   └── App.jsx        # Composant principal
 public/
   ├── images/        # Images du site
-  └── paulin.mp3     # Fichier audio
+  └── Maxe.mp3      # Fichier audio
 ```
 
 ## 📝 Personnalisation
